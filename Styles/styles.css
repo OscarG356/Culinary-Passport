@@ -67,12 +67,14 @@ header h1 {
     background-color: white;
     font-size: 16px;
     border-radius: 50px;
+    display: none;
 }
 
 #cards {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 #cards div{
@@ -92,4 +94,12 @@ header h1 {
     font-size: 20px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
+}
+
+h2 {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    display: none;
 }
