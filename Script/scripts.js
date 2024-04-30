@@ -1,12 +1,21 @@
 // Endpoints de la API
-const api_name = "http://themealdb.com/api/json/v1/1/search.php?s=";
-const api_ingredient = "http://themealdb.com/api/json/v1/1/filter.php?i=";
-const api_category = "http://themealdb.com/api/json/v1/1/filter.php?c=";
-const api_area = "http://themealdb.com/api/json/v1/1/filter.php?a=";
+const api_name = "https://themealdb.com/api/json/v1/1/search.php?s=";
+const api_ingredient = "https://themealdb.com/api/json/v1/1/filter.php?i=";
+const api_category = "https://themealdb.com/api/json/v1/1/filter.php?c=";
+const api_area = "https://themealdb.com/api/json/v1/1/filter.php?a=";
 
 
 let selectElement = document.getElementById("menu");
 let search = document.getElementById("search");
+let currentPage = 1;
+
+function paginate(data, itemsPerPage) {
+  const numberOfPages = Math.ceil(data.length / itemsPerPage);
+  const pages = Array.from({ length: numberOfPages }, (_, i) => 
+    data.slice(i * itemsPerPage, i * itemsPerPage + itemsPerPage)
+  );
+  return pages;
+}
 
 search.addEventListener("click", async function () {
   let selectedValue = selectElement.value;
@@ -42,16 +51,14 @@ search.addEventListener("click", async function () {
   
   //Creación de tarjetas de recetas
   const results = document.getElementById("results");
-  results.setAttribute("class", "cards");
+  results.innerHTML = "";
+  const container = document.createElement("div");
+  container.innerHTML = "";
+  container.setAttribute("id", "cards");
 
-  for(let meal of data.meals){
-    console.log(meal.strMeal);
-  }
+  for(i=0; i<data.length; i++){
+    const dato = data[i];
 
-  /*
-  for(mels of data){
-    console.log(dato);
-    console.log(data);
     const cards = document.createElement("div");
     const img = document.createElement("img");
     const title = document.createElement("h3");
@@ -62,10 +69,10 @@ search.addEventListener("click", async function () {
     cards.appendChild(img);
     cards.appendChild(title);
 
-    results.appendChild(contenedor);
+    container.appendChild(cards);
+
+    results.appendChild(container);
   }
-  */
-  
 });
 
 
@@ -74,15 +81,13 @@ search.addEventListener("click", async function () {
 async function consultarRecetas(url) {
   try {
     const response = await axios.get(url);
-    console.log(response.data);
-    const infoerror = document.getElementById("error");
+    console.log(response.data.strMeal);
     const results = document.getElementById("results");
+    const welcome = document.getElementById("welcome");
     if (response.data.meals == null) {
-      infoerror.style.display = "block";
-      results.style.display = "none";
     } else {
-      infoerror.style.display = "none";
       results.style.display = "block";
+      welcome.style.display = "none";
     }
     return response.data.meals;
   } catch (error) {

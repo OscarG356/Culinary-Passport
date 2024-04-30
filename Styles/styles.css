@@ -1,73 +1,84 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html, body {
     width: 100%;
+    height: auto;
     background-color: white;
     justify-content: center;
     display: flex;
+    font-family: "Kanit", sans-serif;
 }
 main{
-    width: 80%;
-    background-image: linear-gradient(#f58b53,#f0a14c,#f1b74b,#f1d779);
+    width: 100%;
+    height: auto;
     align-items: center;
 }
 
+.header-placeholder {
+    height: 100px;
+}
+
+
 header {
     text-align: center;
-    background-color: #fff;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    background-color: #016a7e;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+}
+
+header img{
+    width: 10%;
 }
 
 header h1 {
-    color: #F56111;
-    font-size: 40px;
-    font-family:cursive;
+    color: white;
+    font-weight: 40px;
+    text-align: center;
+    margin-left: 30%;
 }
 
 #busqueda{
-    width: 100%;
-    display: grid;
-    grid-template-areas: 
-    ". selector . search   .button ."
-    ". . . error . . .";
-    grid-template-columns: 4fr 2fr 1fr 3fr 1fr 1fr 5fr;
-    grid-template-rows: auto;
-}
-
-#busqueda #menu {
-    grid-area: selector;
-    border-radius: 30px;
-}
-
-#busqueda #textbox {
-    grid-area: search;
-    width: 100%;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #016a7e;
+    margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 10px;
     padding: 10px;
-    font-size: 16px;
-    border-radius: 30px;
 }
 
-#busqueda button {
-    grid-area: button;
-    color: white;
-    cursor: pointer;
-    border-radius: 30px;
+#busqueda input{
+    width: 90%;
+    border: 1px solid #222222;
 }
 
-#busqueda button:hover {
-    margin: 0 -30% 0 -30%;
-    transition: all 0.5s ease 0s;
-}
-
-#busqueda button:not(hover) {
-    transition: all 0.5s ease 0s;
-}
-
-#busqueda #error {
-    grid-area: error;
-    text-align: center;
-    color: red;
+ #busqueda button{
+    width: 6%;
     background-color: white;
-    font-size: 16px;
-    border-radius: 50px;
-    display: none;
+    border: 1px solid #222222;
+}
+
+#busqueda svg{
+    margin: 0 auto;
+}
+
+#busqueda button:hover{
+    color: #016a7e;
+    transition: all 0.5s ease-in-out;
+}
+
+#busqueda button:not(hover){
+    transition: all 0.5s ease-in-out;
+}
+
+#results{
+    display: block;
 }
 
 #cards {
@@ -75,14 +86,16 @@ header h1 {
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    flex-wrap: wrap;
 }
 
 #cards div{
     border: 1px solid black;
     border-radius: 50px;
-    width: 30%;
+    width: 20%;
     overflow: hidden;
     background-color: white;
+    margin: 1%;
 }
 
 #cards div img{
@@ -91,18 +104,58 @@ header h1 {
 
 #cards div h3{
     text-align: center;
-    font-size: 20px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 20px;
     color: black;
-}
-
-#results{
-    display: none;
 }
 
 #results h2 {
     text-align: center;
-    font-size: 25px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 25px;
     color: white;
+}
+
+#welcome{
+    margin: 0 auto;
+    margin: 5% 20%;
+    height: 30%;
+    text-align: center;
+    background-color: #016a7e;
+    border-radius: 10px;
+    padding: 2%;
+}
+
+#welcome h2{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 30px;
+    color: white;
+}
+
+#welcome p{
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    color: white;
+}
+
+footer{
+    width: 100%;
+    height: auto;
+    background-color: #016a7e;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}    
+
+footer img{
+    width: 10%;
+}
+
+footer p{
+    color: white;
+    font-weight: 20px;
+    text-align: left ;
+    margin-right: 30%;
 }

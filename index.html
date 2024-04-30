@@ -2,32 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Culinary Passport</title>
-    <link href="/Images/Logo.png" type="image/x-icon">
+    <title>Recipe Book</title>
+    <link rel="icon" href="/Images/Logo_3.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="Styles/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="Script/scripts.js" async></script>
 </head>
 <body>
     <main>
-        <header>
-            <h1>Culinary Passport</h1>
-        </header>
+        <div class="header-placeholder">
+            <header>
+                <img src="Images/Logo_3.png" alt="Logo">
+                <h1>Recipe Book</h1>
+            </header>
+        </div>
+
         <section id="busqueda">
-            <select id="menu">
-                <option value="method1">By Name</option>
-                <option value="method2">By Ingredient</option>
-                <option value="method3">By Category</option>
-                <option value="method4">By Nationality</option>
-            </select>
-            <input type="text" placeholder="Enter your search" id="textbox">
-            <button id="search"><img width="50" height="50" src="https://img.icons8.com/ios/50/search--v1.png" alt="search--v1"/></button>
-            <p id="error">No results, try again</p>
+            <div class="input-group mb-3">
+                <input id="textbox" type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button id="search" class="btn btn-outline-secondary" type="button" id="button-addon2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                </svg></button>
+            </div>
+            <select class="form-select" aria-label="Default select example" id="menu">
+                <option value="method1">Name</option>
+                <option value="method2">Ingredient</option>
+                <option value="method3">Category</option>
+                <option value="method4">Nationality</option>
+              </select>
         </section>
 
+        <div id="welcome">
+            <h2>Welcome</h2>
+            <p>Have a question or need recipe inspiration? Ask us anything! We're here to help you discover new flavors and culinary adventures. Send us your query now!</p>
+        </div>
+
         <section id="results">
-            <h2>Results</h2>
+            
         </section>
+
+        <footer>
+            <p>© 2024 Recipe Book. All rights reserved.</p>
+            <img src="Images/Logo_3.png" alt="Logo">
+        </footer>
     </main>
 </body>
 </html>
